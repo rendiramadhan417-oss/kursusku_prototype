@@ -1,0 +1,16 @@
+LOCAL VS HOSTING
+
+Local:
+- Project dijalankan menggunakan Laragon.
+- URL: http://localhost/rendy-kursusku/
+- File project berada di folder C:\laragon\www\rendy-kursusku\
+- Digunakan untuk proses pengembangan dan pengujian website.
+
+Hosting:
+- Website dapat diakses melalui internet menggunakan domain/URL hosting.
+- File project diunggah ke server hosting.
+- Website dapat diakses dari perangkat lain selama terhubung ke internet.
+
+Kesimpulan:
+Local digunakan untuk membuat dan menguji website sebelum dipublikasikan.
+Hosting digunakan agar website dapat diakses secara online.

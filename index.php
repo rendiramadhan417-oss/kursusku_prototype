@@ -1,46 +1,18 @@
-```php
 <?php
+require_once __DIR__ . '/helpers.php';
 
-$namaWebsite = "rendy-kursusku";
-
-$kursus = [
-    [
-        "nama" => "Dasar Pemrograman PHP",
-        "kategori" => "Pemrograman",
-        "harga" => 150000,
-        "status" => "Tersedia"
-    ],
-    [
-        "nama" => "HTML dan CSS",
-        "kategori" => "Web Design",
-        "harga" => 100000,
-        "status" => "Tersedia"
-    ],
-    [
-        "nama" => "JavaScript Dasar",
-        "kategori" => "Pemrograman",
-        "harga" => 175000,
-        "status" => "Penuh"
-    ],
-    [
-        "nama" => "Database MySQL",
-        "kategori" => "Database",
-        "harga" => 200000,
-        "status" => "Tersedia"
-    ],
-    [
-        "nama" => "Desain UI/UX",
-        "kategori" => "Desain",
-        "harga" => 125000,
-        "status" => "Tersedia"
-    ],
-    [
-        "nama" => "Git dan GitHub",
-        "kategori" => "Tools",
-        "harga" => 100000,
-        "status" => "Penuh"
-    ]
+$courses = [
+    ['code' => 'WEB-01', 'name' => 'Web Dasar', 'fee' => 200000, 'quota' => 30, 'registered' => 12, 'start_date' => '2026-09-21'],
+    ['code' => 'PHP-01', 'name' => 'PHP Dasar', 'fee' => 250000, 'quota' => 30, 'registered' => 18, 'start_date' => '2026-09-22'],
+    ['code' => 'PHP-02', 'name' => 'PHP Lanjutan', 'fee' => 300000, 'quota' => 25, 'registered' => 24, 'start_date' => '2026-09-24'],
+    ['code' => 'LAR-01', 'name' => 'Laravel Fundamental', 'fee' => 350000, 'quota' => 25, 'registered' => 25, 'start_date' => '2026-09-28'],
+    ['code' => 'DB-01', 'name' => 'MySQL Dasar', 'fee' => 275000, 'quota' => 20, 'registered' => 0, 'start_date' => '2026-10-01'],
+    ['code' => 'UI-01', 'name' => 'UI Web Dasar', 'fee' => 225000, 'quota' => 35, 'registered' => 9, 'start_date' => '2026-10-03'],
 ];
+
+$siteName = "KursusKu";
+$tagline = "Belajar Teknologi, Bangun Masa Depan";
+$tahun = date("Y");
 
 ?>
 
@@ -48,552 +20,259 @@ $kursus = [
 <html lang="id">
 
 <head>
+  <meta charset="UTF-8">
 
-    <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+  <title><?php echo $siteName; ?></title>
 
-    <title><?= $namaWebsite ?></title>
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f7fb;
-            color: #222;
-        }
-
-        /* HEADER */
-
-        header {
-            background: #2563eb;
-            color: white;
-            padding: 20px 8%;
-        }
-
-        header h1 {
-            margin: 0;
-        }
-
-        /* HERO */
-
-        .hero {
-            padding: 50px 8%;
-            background: #dbeafe;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .hero-text h2 {
-            font-size: 35px;
-            margin-bottom: 10px;
-        }
-
-        .hero-text p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
-            border-radius: 15px;
-            display: block;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        }
-
-        /* TOMBOL MENU */
-
-        .menu-section {
-            padding: 40px 8%;
-            background: white;
-            text-align: center;
-        }
-
-        .menu-section h2 {
-            color: #2563eb;
-            margin-bottom: 10px;
-        }
-
-        .menu-section p {
-            color: #555;
-            margin-bottom: 25px;
-        }
-
-        .menu-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .menu-button {
-            display: inline-block;
-            padding: 13px 22px;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .menu-button:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-        }
-
-        /* VIDEO */
-
-        .media-section {
-            padding: 50px 8%;
-            text-align: center;
-            background: #f8fafc;
-        }
-
-        .media-section h2 {
-            color: #2563eb;
-            margin-bottom: 10px;
-        }
-
-        .media-section p {
-            color: #555;
-            margin-bottom: 25px;
-        }
-
-        .video-container {
-            max-width: 800px;
-            margin: auto;
-            background: #111827;
-            padding: 10px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .video-container video {
-            width: 100%;
-            display: block;
-            border-radius: 10px;
-        }
-
-        /* KATALOG */
-
-        .container {
-            padding: 40px 8%;
-        }
-
-        .container h2 {
-            margin-bottom: 25px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(230px, 1fr)
-            );
-            gap: 20px;
-        }
-
-        /* CARD */
-
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        }
-
-        .card h3 {
-            margin-top: 15px;
-            min-height: 45px;
-        }
-
-        .card p {
-            line-height: 1.5;
-        }
-
-        /* STATUS */
-
-        .status {
-            display: inline-block;
-            padding: 6px 10px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: bold;
-        }
-
-        .tersedia {
-            background: #dcfce7;
-            color: #166534;
-        }
-
-        .penuh {
-            background: #fee2e2;
-            color: #991b1b;
-        }
-
-        /* HARGA */
-
-        .harga {
-            color: #2563eb;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        /* KONTAK */
-
-        .contact-section {
-            padding: 50px 8%;
-            background: #dbeafe;
-            text-align: center;
-        }
-
-        .contact-box {
-            max-width: 650px;
-            margin: auto;
-            padding: 35px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
-        }
-
-        .contact-icon {
-            font-size: 45px;
-            margin-bottom: 10px;
-        }
-
-        .contact-box h2 {
-            color: #2563eb;
-            margin-bottom: 10px;
-        }
-
-        .contact-box p {
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .contact-box h3 {
-            color: #222;
-            font-size: 24px;
-            margin-top: 20px;
-            margin-bottom: 5px;
-        }
-
-        .contact-number {
-            font-weight: bold;
-            margin-bottom: 25px;
-        }
-
-        .contact-button {
-            display: inline-block;
-            padding: 13px 24px;
-            background: #22c55e;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .contact-button:hover {
-            background: #16a34a;
-            transform: translateY(-2px);
-        }
-
-        /* FOOTER */
-
-        footer {
-            background: #111827;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 768px) {
-
-            .hero-content {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-text h2 {
-                font-size: 28px;
-            }
-
-            .hero-image img {
-                height: 250px;
-            }
-
-            .container {
-                padding: 30px 6%;
-            }
-
-            .hero {
-                padding: 40px 6%;
-            }
-
-            .media-section {
-                padding: 40px 6%;
-            }
-
-            .menu-section {
-                padding: 35px 6%;
-            }
-
-            .contact-section {
-                padding: 40px 6%;
-            }
-
-            .menu-button {
-                width: 100%;
-                max-width: 350px;
-            }
-
-            .contact-button {
-                width: 100%;
-                max-width: 350px;
-            }
-
-        }
-
-    </style>
-
+  <link
+    rel="stylesheet"
+    href="assets/css/style.css">
 </head>
 
 <body>
+  <header class="header">
 
-<!-- HEADER -->
+    <div class="container">
 
-<header>
+      <h1>
+        <?php echo $siteName; ?>
+      </h1>
 
-    <h1><?= $namaWebsite ?></h1>
+      <p>
+        <?php echo $tagline; ?>
+      </p>
 
-</header>
+    </div>
+
+  </header>
+
+  <nav class="navbar">
+  <div class="container">
+    <a href="index.php">Beranda</a>
+    <a href="index.php#kursus">Katalog</a>
+    <a href="registration.php">Daftar Kursus</a>
+  </div>
+</nav>
 
 
-<!-- HERO -->
+  <main>
+    <section id="beranda" class="hero">
 
-<section class="hero">
+      <div class="container">
 
-    <div class="hero-content">
+        <div class="hero-content">
 
-        <div class="hero-text">
+          <div>
 
             <h2>
-                Belajar Teknologi,
-                Bangun Masa Depan
+              Selamat Datang di
+              <?php echo $siteName; ?>
             </h2>
 
             <p>
-                Temukan berbagai kursus teknologi sederhana
-                untuk meningkatkan kemampuan digital dan
-                mengembangkan keterampilan masa depan.
+              Platform belajar teknologi untuk
+              mahasiswa yang ingin meningkatkan
+              kemampuan pemrograman web.
             </p>
 
-        </div>
+            <a
+              href="#kursus"
+              class="button">
+              Lihat Kursus
+            </a>
 
-        <div class="hero-image">
+            <a
+                href="fee-calculator.php"
+                class="button">Lihat Estimasi Biaya
+              </a>
+
+          </div>
+
+          <div>
 
             <img
-                src="assets/images/hero-kursus.jpg"
-                alt="Kursus Teknologi"
-            >
+              src="assets/images/hero-kursus.png"
+              alt="Mahasiswa sedang belajar pemrograman web"
+              class="hero-image">
+
+          </div>
 
         </div>
 
-    </div>
+      </div>
 
-</section>
+    </section>
 
+    <!-- ===== SECTION KATALOG — DIGANTI DENGAN TABEL DINAMIS ===== -->
+    <section id="kursus" class="section">
 
-<!-- MENU FITUR -->
+      <div class="container">
 
-<section class="menu-section">
+        <h2>Katalog Kursus</h2>
 
-    <h2>Fitur rendy-kursusku</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Kode</th>
+              <th>Nama</th>
+              <th>Biaya</th>
+              <th>Mulai</th>
+              <th>Sisa</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($courses as $course): ?>
+              <?php
+              $status = statusKursus($course['quota'], $course['registered']);
+              $statusClass = $status === 'Penuh' ? 'badge-full' : 'badge-available';
+              ?>
+              <tr>
+                <td><?= htmlspecialchars($course['code']) ?></td>
+                <td><?= htmlspecialchars(trim($course['name'])) ?></td>
+                <td><?= rupiah($course['fee']) ?></td>
+                <td><?= formatTanggal($course['start_date']) ?></td>
+                <td><?= sisaKursi($course['quota'], $course['registered']) ?></td>
+                <td><span class="<?= $statusClass ?>"><?= $status ?></span></td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
 
-    <p>
-        Akses berbagai fitur pendukung pembelajaran PHP.
-    </p>
+      </div>
 
-    <div class="menu-buttons">
+    </section>
+    <!-- ===== AKHIR SECTION KATALOG ===== -->
+     
+    <section id="kursus" class="section">
 
-        <a
-            href="fee-calculator.php"
-            class="menu-button"
-        >
-            🧮 Kalkulator Biaya
-        </a>
+      <div class="container">
 
-        <a
-            href="server-time.php"
-            class="menu-button"
-        >
-            🖥️ Server Time
-        </a>
+        <h2>Program Kursus</h2>
 
-        <a
-            href="test-functions.php"
-            class="menu-button"
-        >
-            🔧 Fungsi PHP
-        </a>
+        <div class="course-grid">
 
-    </div>
+          <article class="course-card">
 
-</section>
+            <h3>HTML & CSS</h3>
 
+            <p>
+              Belajar membangun struktur dan
+              tampilan website dari dasar.
+            </p>
 
-<!-- VIDEO -->
-
-<section class="media-section">
-
-    <h2>Video Pembelajaran rendy-kursusku</h2>
-
-    <p>
-        Simak video berikut untuk mempelajari materi lebih dalam.
-    </p>
-
-    <div class="video-container">
-
-        <video controls preload="metadata">
-
-            <source
-                src="assets/video/intro-kursus.mp4"
-                type="video/mp4"
-            >
-
-            Browser Anda tidak mendukung pemutar video.
-
-        </video>
-
-    </div>
-
-</section>
+          </article>
 
 
-<!-- KATALOG -->
+          <article class="course-card">
 
-<main class="container">
+            <h3>PHP</h3>
 
-    <h2>Katalog Kursus</h2>
+            <p>
+              Belajar pemrograman web
+              server-side menggunakan PHP.
+            </p>
 
-    <div class="grid">
-
-        <?php foreach ($kursus as $item): ?>
-
-            <div class="card">
-
-                <span
-                    class="status <?= strtolower($item["status"]) ?>"
-                >
-                    <?= $item["status"] ?>
-                </span>
-
-                <h3>
-                    <?= $item["nama"] ?>
-                </h3>
-
-                <p>
-                    <strong>Kategori:</strong>
-                    <?= $item["kategori"] ?>
-                </p>
-
-                <p class="harga">
-
-                    Rp<?= number_format(
-                        $item["harga"],
-                        0,
-                        ",",
-                        "."
-                    ) ?>
-
-                </p>
-
-            </div>
-
-        <?php endforeach; ?>
-
-    </div>
-
-</main>
+          </article>
 
 
-<!-- KONTAK -->
+          <article class="course-card">
 
-<section class="contact-section">
+            <h3>Laravel</h3>
 
-    <div class="contact-box">
+            <p>
+              Membangun aplikasi web modern
+              menggunakan framework Laravel.
+            </p>
 
-        <div class="contact-icon">
-            📱
+          </article>
+
         </div>
 
-        <h2>
-            Hubungi Kami
-        </h2>
+      </div>
+
+    </section>
+    <section id="tentang" class="section section-light">
+
+      <div class="container">
+
+        <h2>Tentang KursusKu</h2>
 
         <p>
-            Ada pertanyaan tentang rendy-kursusku?
-            Silakan hubungi kami melalui WhatsApp.
+          KursusKu merupakan prototype website
+          pembelajaran yang dikembangkan dalam
+          mata kuliah Pemrograman Web III.
         </p>
 
-        <h3>
-            Rendy R. Ramadhan
-        </h3>
-
-        <p class="contact-number">
-            WhatsApp: 083199318199
+        <p>
+          Pada semester ini mahasiswa akan belajar
+          PHP, MySQL dan framework Laravel.
         </p>
 
         <a
-            href="https://wa.me/6283199318199"
-            target="_blank"
-            class="contact-button"
-        >
-            💬 Hubungi via WhatsApp
+          href="https://laravel.com"
+          target="_blank"
+          rel="noopener">
+          Pelajari Laravel
         </a>
+
+      </div>
+
+    </section>
+    <section class="section">
+
+      <div class="container">
+
+        <h2>Video Pembelajaran</h2>
+
+        <div class="video-placeholder">
+
+          <iframe width="342" height="607" src="https://www.youtube.com/embed/nQinn48Bk2g" title="Kenapa Laravel Masih Banyak Yang Pake" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+
+      </div>
+
+    </section>
+    <section id="kontak" class="section section-light">
+
+      <div class="container">
+
+        <h2>Kontak</h2>
+
+        <p>
+          Informasi lebih lanjut mengenai
+          program KursusKu dapat diperoleh
+          melalui halaman ini.
+        </p>
+
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+
+    <div class="container">
+
+      <p>
+
+        &copy;
+        <?php echo $tahun; ?>
+
+        <?php echo $siteName; ?>.
+
+        Pemrograman Web III.
+
+      </p>
 
     </div>
 
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    &copy; <?= date("Y") ?>
-    <?= $namaWebsite ?>
-
-</footer>
-
+  </footer>
 </body>
 
 </html>
-```

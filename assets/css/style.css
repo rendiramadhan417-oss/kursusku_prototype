@@ -1,0 +1,414 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  color: #111827;
+  background: #f5f3ff;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* ===== HEADER ===== */
+
+.header {
+  background: linear-gradient(135deg, #111827, #4c1d95, #2563eb);
+  color: white;
+  padding: 32px 0;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.header p {
+  margin: 8px 0 0;
+  opacity: 0.9;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar {
+  background: #111827;
+  padding: 12px 0;
+}
+
+.navbar a {
+  color: white;
+  margin-right: 20px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.navbar a:hover {
+  color: #a78bfa;
+  text-decoration: underline;
+}
+
+/* ===== SECTION ===== */
+
+.section {
+  padding: 48px 0;
+}
+
+.section-light {
+  background: white;
+}
+
+/* ===== HERO ===== */
+
+.hero {
+  background: white;
+  padding: 48px 0;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* ===== BUTTON ===== */
+
+.button {
+  display: inline-block;
+  background: #7c3aed;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.button:hover {
+  background: #2563eb;
+}
+
+/* ===== COURSE GRID ===== */
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.course-card {
+  background: white;
+  border: 1px solid #ddd6fe;
+  border-radius: 12px;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(76, 29, 149, 0.15);
+}
+
+.course-card h3 {
+  margin-top: 0;
+  color: #6d28d9;
+}
+
+/* ===== VIDEO ===== */
+
+.video-placeholder {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* ===== FOOTER ===== */
+
+.footer {
+  background: #111827;
+  color: white;
+  padding: 24px 0;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* ===== RESPONSIVE HERO ===== */
+
+@media (max-width: 700px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== CSS UNTUK TABEL KATALOG ===== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  background: white;
+}
+
+th,
+td {
+  border: 1px solid #ddd6fe;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background: #4c1d95;
+  color: white;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background: #f5f3ff;
+}
+
+tr:hover {
+  background: #ede9fe;
+}
+
+/* ===== CSS UNTUK BADGE STATUS ===== */
+
+.badge-available,
+.badge-full {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.badge-available {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.badge-full {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+/* ===== CSS GLOBAL KURSUSKU ===== */
+
+:root {
+  --brand: #7c3aed;
+  --brand-dark: #4c1d95;
+  --blue: #2563eb;
+  --blue-dark: #1d4ed8;
+  --black: #111827;
+  --surface: #ffffff;
+  --soft: #f5f3ff;
+  --text: #111827;
+  --muted: #64748b;
+  --line: #ddd6fe;
+}
+
+/* ===== SITE HEADER ===== */
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-wrap {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--brand-dark);
+}
+
+.brand:hover {
+  color: var(--blue);
+}
+
+/* ===== PAGE INTRO ===== */
+
+.page-intro {
+  max-width: 720px;
+  margin: 2.5rem auto 1.25rem;
+}
+
+.eyebrow {
+  color: var(--brand);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+/* ===== CSS FORM ===== */
+
+.form-card,
+.summary-card {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(17, 24, 39, 0.05);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label,
+legend {
+  display: block;
+  font-weight: 700;
+  margin-bottom: .35rem;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: .8rem .9rem;
+  border: 1px solid #c4b5fd;
+  border-radius: .65rem;
+  background: #fff;
+  color: var(--text);
+}
+
+/* ===== INPUT FOCUS ===== */
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid rgba(124, 58, 237, .18);
+  border-color: var(--brand);
+}
+
+/* ===== CHOICE ===== */
+
+.choice {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  margin-right: 1rem;
+  font-weight: 400;
+}
+
+/* ===== HELP TEXT ===== */
+
+.help {
+  color: var(--muted);
+}
+
+/* ===== PRIMARY BUTTON ===== */
+
+.btn-primary,
+.btn-link {
+  display: inline-block;
+  border: 0;
+  border-radius: .7rem;
+  padding: .8rem 1.1rem;
+  background: var(--brand);
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover,
+.btn-link:hover {
+  background: var(--blue);
+  transform: translateY(-2px);
+}
+
+/* ===== SUCCESS ALERT ===== */
+
+.alert-success {
+  max-width: 760px;
+  margin: 2rem auto 1rem;
+  padding: 1.2rem;
+  background: #dbeafe;
+  border-left: 4px solid #2563eb;
+  color: #1e3a8a;
+}
+
+/* ===== SUMMARY ===== */
+
+.summary-list {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: .65rem 1rem;
+}
+
+.summary-list dt {
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+
+.summary-list dd {
+  margin: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 640px) {
+
+  .nav-wrap {
+    align-items: flex-start;
+    padding-block: .8rem;
+  }
+
+  nav {
+    gap: .65rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card,
+  .summary-card {
+    padding: 1rem;
+  }
+
+  .summary-list {
+    grid-template-columns: 1fr;
+  }
+}
