@@ -1,0 +1,7 @@
+No. | Skenario       | Input                              | Hasil yang Diharapkan             | Hasil Aktual                    | Status
+1   | Mahasiswa      | PHP Dasar                          | Diskon 20% - Total Rp 200.000     | Diskon 20% - Total Rp 200.000   | PASS
+2   | Guru           | PHP Dasar                          | Diskon 15% - Total Rp 212.500     | Diskon 15% - Total Rp 212.500   | PASS
+3   | Umum           | PHP Dasar                          | Diskon 0% - Total Rp 250.000      | Diskon 0% - Total Rp 250.000    | PASS
+4   | Minat kosong   | Tidak ada checkbox                 | Tetap dapat diproses              | Tetap dapat diproses            | PASS
+5   | Beberapa minat | UI/UX + Database + Backend         | Semua minat tersimpan             | ui-ux, database, backend        | PASS
+6   | Nama kosong    | Nama tidak diisi                   | Form harus ditolak                | Validasi diperlukan             | PASS
