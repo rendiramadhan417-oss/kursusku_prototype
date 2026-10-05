@@ -412,3 +412,142 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 }
+
+/* =====================================================
+   RINGKASAN BIAYA - KURSUSKU
+   ===================================================== */
+
+.result-page .cost-summary {
+  width: 100%;
+  max-width: 818px;
+  margin: 24px auto 40px auto;
+  padding: 28px 26px;
+
+  /* Mengikuti tema Kursusku */
+  background: var(--surface);
+
+  border: 1px solid var(--line);
+  border-radius: 14px;
+
+  box-sizing: border-box;
+
+  /* Shadow mengikuti desain card */
+  box-shadow: 0 4px 15px rgba(17, 24, 39, 0.05);
+}
+
+
+/* =====================================================
+   JUDUL RINGKASAN BIAYA
+   ===================================================== */
+
+.result-page .cost-summary h2 {
+  margin: 0 0 24px 0;
+
+  color: var(--brand-dark);
+
+  font-size: 28px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   SETIAP BARIS
+   ===================================================== */
+
+.result-page .cost-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+
+  padding: 14px 0;
+
+  border-bottom: 1px solid var(--line);
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   LABEL SEBELAH KIRI
+   ===================================================== */
+
+.result-page .cost-row strong {
+  color: var(--text);
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   NILAI SEBELAH KANAN
+   ===================================================== */
+
+.result-page .cost-row span {
+  color: var(--text);
+
+  font-size: 16px;
+  font-weight: 400;
+
+  text-align: right;
+}
+
+
+/* =====================================================
+   TOTAL BIAYA
+   ===================================================== */
+
+.result-page .cost-row.total {
+  margin-top: 10px;
+  padding: 18px 0 4px 0;
+
+  border-top: 2px solid var(--brand);
+  border-bottom: none;
+}
+
+
+.result-page .cost-row.total strong {
+  color: var(--brand-dark);
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+.result-page .cost-row.total span {
+  color: var(--brand);
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+  .result-page .cost-summary {
+    width: 100%;
+    padding: 22px 20px;
+  }
+
+  .result-page .cost-summary h2 {
+    font-size: 24px;
+  }
+
+  .result-page .cost-row strong,
+  .result-page .cost-row span {
+    font-size: 14px;
+  }
+
+  .result-page .cost-row.total strong,
+  .result-page .cost-row.total span {
+    font-size: 18px;
+  }
+
+}
