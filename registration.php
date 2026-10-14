@@ -1,3 +1,21 @@
+<?php
+
+$courses = [
+    'web-dasar' => 'Web Dasar',
+    'php-dasar' => 'PHP Dasar',
+    'php-lanjutan' => 'PHP Lanjutan',
+    'laravel-fundamental' => 'Laravel Fundamental',
+    'mysql-dasar' => 'MySQL Dasar',
+    'ui-web-dasar' => 'UI WEB Dasar'
+];
+
+function e($value): string
+{
+    return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
+}
+
+?>
+
 <!doctype html>
 <html lang="id">
 <head>
@@ -46,19 +64,28 @@
       </div>
 
       <div class="form-group">
-        <label for="course">Kursus yang Dipilih</label>
-        <select id="course" name="course" required>
-          <option value="">-- Pilih kursus --</option>
-          <option value="web-dasar">Web Dasar</option>
-          <option value="php-dasar">PHP Dasar</option>
-          <option value="laravel-fundamental">Laravel Fundamental</option>
-        </select>
-      </div>
+  <label for="course">Kursus yang Dipilih</label>
+
+  <select id="course" name="course" required>
+
+    <option value="">-- Pilih kursus --</option>
+
+    <?php foreach ($courses as $value => $courseName): ?>
+      <option value="<?= e($value) ?>">
+        <?= e($courseName) ?>
+      </option>
+    <?php endforeach; ?>
+
+  </select>
+</div>
 
       <fieldset class="form-group">
         <legend>Jenis Peserta</legend>
         <label class="choice">
           <input type="radio" name="participant_type" value="mahasiswa" required> Mahasiswa
+        </label>
+        <label class="choice">
+          <input type="radio" name="participant_type" value="guru"> Guru
         </label>
         <label class="choice">
           <input type="radio" name="participant_type" value="umum"> Umum
